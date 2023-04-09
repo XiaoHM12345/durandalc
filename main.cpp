@@ -20,6 +20,8 @@ int main() {
 
     boost::log::add_common_attributes();
 
+    std::cout << "hello world" << std::endl;
+
 
     return 0;
 }

@@ -20,12 +20,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1e3e375-b463-4a6a-8b0f-241c9e26b335" name="变更" comment="init submit">
+    <list default="true" id="c1e3e375-b463-4a6a-8b0f-241c9e26b335" name="变更" comment="update readne">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/durandalc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/durandalc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/durandalc.h" beforeDir="false" afterPath="$PROJECT_DIR$/durandalc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/durandalc_option.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/durandalc_option.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/durandalc_options.h" beforeDir="false" afterPath="$PROJECT_DIR$/durandalc_options.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +54,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;所有位置&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
@@ -69,17 +67,23 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="C/C++ 文件.main.cpp">
     <configuration name="durandalc" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="durandalc" TARGET_NAME="durandalc" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="durandalc" RUN_TARGET_NAME="durandalc">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="main.cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="durandalc" TARGET_NAME="main.cpp" CONFIG_NAME="main.cpp">
+      <option name="sourceFile" value="main.cpp" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="C/C++ 文件.main.cpp" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -92,7 +96,9 @@
       <workItem from="1680943007164" duration="365000" />
       <workItem from="1680943379917" duration="16716000" />
       <workItem from="1680965593675" duration="8507000" />
-      <workItem from="1681026673441" duration="4966000" />
+      <workItem from="1681026673441" duration="6925000" />
+      <workItem from="1681049443112" duration="92000" />
+      <workItem from="1681049882648" duration="745000" />
     </task>
     <task id="LOCAL-00001" summary="init submit">
       <created>1681024301475</created>
@@ -108,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681026025862</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update readne">
+      <created>1681048169198</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681048169198</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +152,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init submit" />
-    <option name="LAST_COMMIT_MESSAGE" value="init submit" />
+    <MESSAGE value="update readne" />
+    <option name="LAST_COMMIT_MESSAGE" value="update readne" />
   </component>
 </project>
