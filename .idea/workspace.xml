@@ -21,7 +21,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1e3e375-b463-4a6a-8b0f-241c9e26b335" name="变更" comment="init submit">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/durandalc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/durandalc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/durandalc.h" beforeDir="false" afterPath="$PROJECT_DIR$/durandalc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/durandalc_option.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/durandalc_option.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/durandalc_options.h" beforeDir="false" afterPath="$PROJECT_DIR$/durandalc_options.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,9 +70,9 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="durandalc" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="durandalc" TARGET_NAME="durandalc" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="durandalc" RUN_TARGET_NAME="durandalc">
@@ -87,7 +91,8 @@
       <updated>1680943006027</updated>
       <workItem from="1680943007164" duration="365000" />
       <workItem from="1680943379917" duration="16716000" />
-      <workItem from="1680965593675" duration="8431000" />
+      <workItem from="1680965593675" duration="8507000" />
+      <workItem from="1681026673441" duration="4966000" />
     </task>
     <task id="LOCAL-00001" summary="init submit">
       <created>1681024301475</created>
@@ -114,7 +119,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

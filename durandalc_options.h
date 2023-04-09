@@ -17,11 +17,19 @@
 #include <string>
 #include <mutex>
 #include <map>
+#include <algorithm>
 #include <functional>
 
 #include <sqlite3.h>
 
 namespace durandalc {
+
+//#define BOOST_LOG_TRIVIAL(info) INFO;
+//#define BOOST_LOG_TRIVIAL(trace) TRACE;
+//#define BOOST_LOG_TRIVIAL(error) ERROR;
+//#define BOOST_LOG_TRIVIAL(fatal) FATAL;
+//#define BOOST_LOG_TRIVIAL(debug) DEBUG;
+//#define BOOST_LOG_TRIVIAL(warning) WARNING;
 
 namespace details {
 
@@ -42,21 +50,16 @@ private:
 };
 
 
-    class file_buffer : boost::noncopyable
+class file_buffer : boost::noncopyable
 {
 public:
-
-    struct file_info_t {
-        std::string filename_;
-        std::string md5_;
-        bool exsit_;
-    };
-
     file_buffer() = default;
-    std::map<std::string, file_info_t> get_all_file();
-
+    void get(std::vector<std::map<std::string, std::string>>& rf);
+    bool get(const std::string& filename, std::map<std::string, std::string>& rf);
+    void set(const std::vector<std::map<std::string, std::string>>& rf);
+    void set(const std::map<std::string, std::string>& rf);
 private:
-    std::map<std::string, file_info_t> files_;
+    std::vector<std::map<std::string, std::string>> files_;
     std::mutex mu_;
 };
 

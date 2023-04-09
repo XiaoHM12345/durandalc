@@ -196,5 +196,51 @@ bool durandalc::details::sqlite3_wrapper::getAllRecords(const std::string &table
 }
 
 
+void durandalc::details::file_buffer::get(std::vector<std::map<std::string, std::string>>& rf) {
+    std::unique_lock<std::mutex> lock(mu_);
+    rf = this->files_;
+}
 
+bool durandalc::details::file_buffer::get(const std::string &filename, std::map<std::string, std::string> &rf) {
+    std::unique_lock<std::mutex> lock(mu_);
+    auto ret_it = std::find_if(files_.begin(), files_.end(), [=](std::map<std::string, std::string> local_map) -> bool {
+        if (local_map["filename"] == filename)
+            return true;
+        else
+            return false;
+    });
+    if (files_.end() != ret_it) {
+        rf = *ret_it;
+        return true;
+    } else {
+        return false;
+    }
+}
 
+void durandalc::details::file_buffer::set(const std::vector<std::map<std::string, std::string>> &rf) {
+    std::unique_lock<std::mutex> lock(mu_);
+    this->files_ = rf;
+}
+
+// FIXME:why not const std::map&
+void durandalc::details::file_buffer::set(const std::map<std::string, std::string>& rf) {
+    if (rf.end() == rf.find("filename"))
+    {
+        BOOST_LOG_TRIVIAL(error) << "set value for file_buffer: no \"filename\" field in para.";
+        return;
+    }
+    std::unique_lock<std::mutex> lock(mu_);
+    auto ret_it = std::find_if(files_.begin(), files_.end(), [=](const std::map<std::string, std::string>& local_map) -> bool {
+        auto local_it = local_map.find("filename");
+        auto rf_it = rf.find("filename");
+
+        if (local_it->first == rf_it->first)
+            return true;
+        else
+            return false;
+    });
+    if (files_.end() != ret_it)
+        *ret_it = rf;
+    else
+        files_.emplace_back(rf);
+}

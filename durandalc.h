@@ -195,7 +195,7 @@ class durandalc : boost::noncopyable {
 public:
 
     durandalc(crstring host, uint16_t port, crstring target, int version);
-
+    void run();
 private:
 
     bool running_;

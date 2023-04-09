@@ -21,6 +21,10 @@ durandalc::durandalc::durandalc(const std::string &host, uint16_t port, const st
 
 }
 
+void durandalc::durandalc::run() {
+
+}
+
 
 void durandalc::details::thread_pool::push(std::function<void()> task) {
     std::unique_lock<std::mutex> lock(mu_);
