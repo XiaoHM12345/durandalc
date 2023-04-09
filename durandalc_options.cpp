@@ -244,3 +244,15 @@ void durandalc::details::file_buffer::set(const std::map<std::string, std::strin
     else
         files_.emplace_back(rf);
 }
+
+void durandalc::get_files_in_directory(const std::string& dir_path, std::vector<std::string>& result)
+{
+    std::vector<std::string> files;
+        for (const auto& entry : std::filesystem::recursive_directory_iterator(dir_path)) {
+            if (entry.is_regular_file()) {
+                files.push_back(entry.path().string());
+            }
+        }
+        result = files;
+        BOOST_LOG_TRIVIAL(error) << "get all file from dir " << dir_path;
+}
