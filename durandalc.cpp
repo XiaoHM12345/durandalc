@@ -10,7 +10,7 @@ durandalc::durandalc::durandalc(const std::string &host, uint16_t port, const st
     stream_(ioc_),
     remote_port_(port),
     remote_host_(host),
-    local_host_(string("0, 0, 0, 0")),
+    local_host_(string("0.0.0.0")),
     running_(false),
     mu_(),
     pool_(string("false"), details::THREAD_POOL_CAPACITY),
