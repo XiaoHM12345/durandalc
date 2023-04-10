@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(Boost REQUIRED COMPONENTS ALL)
 find_package(SQLite3 REQUIRED)
+#find_package(OpenSSL REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
@@ -14,3 +15,4 @@ add_executable(durandalc main.cpp  durandalc.cpp durandalc.h durandalc_options.h
 
 target_link_libraries(durandalc ${Boost_LIBRARIES})
 target_link_libraries(durandalc SQLite::SQLite3)
+#target_link_libraries(durandalc OpenSSL::SSL OpenSSL::Crypto)

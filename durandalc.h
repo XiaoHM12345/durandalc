@@ -27,6 +27,8 @@
 #include <functional>
 #include <thread>
 #include <queue>
+#include <chrono>
+#include <memory>
 
 // durandalc is not a thread safe class
 // Only use in a main thread to control http connection \
@@ -43,6 +45,9 @@ using crstring = const string&;
 
 namespace details {
 std::atomic<uint> THREAD_POOL_CAPACITY = 5;
+
+class sqlite3_wrapper;
+class file_buffer;
 
 class barrier : boost::noncopyable {
 public:
@@ -191,6 +196,8 @@ void send_chunk(asio::io_context& ioc, const std::string& host, const std::strin
 
 }
 
+
+
 class durandalc : boost::noncopyable {
 public:
 
@@ -198,9 +205,15 @@ public:
     void run();
 private:
 
+    void run_http_in_thread();
+    void run_db_in_thread();
+    void run_update_files_in_thread();
+
     bool running_;
     std::mutex mu_;
 
+    std::shared_ptr<details::sqlite3_wrapper> p_sqlite3_wrapper_;
+    std::shared_ptr<details::file_buffer> p_file_buffer_;
 
     details::thread_pool pool_;
 

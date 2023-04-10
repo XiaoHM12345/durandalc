@@ -3,6 +3,7 @@
 //
 
 #include "durandalc.h"
+#include "durandalc_options.h"
 
 durandalc::durandalc::durandalc(const std::string &host, uint16_t port, const std::string& target, int version)
   : ioc_(),
@@ -15,8 +16,20 @@ durandalc::durandalc::durandalc(const std::string &host, uint16_t port, const st
     mu_(),
     pool_(string("false"), details::THREAD_POOL_CAPACITY),
     target_(target),
-    version_(version)
+    version_(version),
+    p_sqlite3_wrapper_(std::make_shared<details::sqlite3_wrapper>(DATABASE_PATH)),
+    p_file_buffer_(std::make_shared<details::file_buffer>())
 {
+    std::error_code ec;
+    std::vector<std::string> columns = {
+            "ID INTEGER PRIMARY KEY AUTOINCREMENT",
+            "FILENAME TEXT NOT NULL UNIQUE",
+            "MD5 TEXT NOT NULL",
+            "FILE_EXISTS INTEGER NOT NULL"
+        };
+
+    (*p_sqlite3_wrapper_).create_table("file_info", columns);
+
     auto const remote_ip = resolver_.resolve(remote_host_, std::to_string(remote_port_));
 
 }
@@ -54,5 +67,19 @@ void durandalc::details::thread_pool::run_in_thread() {
         auto newTask = take();
         if (newTask)
             newTask();
+    }
+}
+
+void durandalc::durandalc::run_http_in_thread() {
+
+}
+
+void durandalc::durandalc::run_update_files_in_thread() {
+    while (true) {
+        std::vector<std::string> result;
+        get_files_in_directory(BACKUP_FILE_PATH, result);
+        std::vector<std::map<std::string, std::string>> db_result;
+        (*p_sqlite3_wrapper_).getAllRecords("file_info", db_result);
+        std::this_thread::sleep_for(std::chrono::seconds(10));
     }
 }

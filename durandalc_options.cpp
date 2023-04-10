@@ -256,3 +256,45 @@ void durandalc::get_files_in_directory(const std::string& dir_path, std::vector<
         result = files;
         BOOST_LOG_TRIVIAL(error) << "get all file from dir " << dir_path;
 }
+
+bool durandalc::is_file_open(const std::string& filename) {
+    char command[1024];
+        sprintf(command, "lsof %s 2> /dev/null | grep -q %s", filename.c_str(), filename.c_str());
+        FILE* fp = popen(command, "r");
+        if (fp != NULL) {
+            char output[1024];
+            if (fgets(output, sizeof(output), fp) != NULL) {
+                // 文件已经被打开
+                pclose(fp);
+                return true;
+            }
+            pclose(fp);
+        }
+        return false;
+}
+
+void durandalc::get_file_md5(const std::string& filename, std::string& result)
+{
+    std::ifstream ifs(filename, std::ios::binary);
+        if (!ifs) {
+            throw std::runtime_error("Failed to open file");
+        }
+
+        MD5_CTX md5_context;
+        MD5_Init(&md5_context);
+
+        char buffer[1024];
+        while (ifs.read(buffer, sizeof(buffer)) || ifs.gcount()) {
+            MD5_Update(&md5_context, buffer, ifs.gcount());
+        }
+
+        unsigned char md5_result[MD5_DIGEST_LENGTH];
+        MD5_Final(md5_result, &md5_context);
+
+        std::stringstream ss;
+        ss << std::hex << std::setfill('0');
+        for (auto c : md5_result) {
+            ss << std::setw(2) << static_cast<unsigned>(c);
+        }
+        result = ss.str();
+}
