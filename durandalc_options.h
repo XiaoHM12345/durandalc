@@ -20,10 +20,17 @@
 #include <algorithm>
 #include <functional>
 #include <filesystem>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 
 #include <sqlite3.h>
+//#include <openssl/md5.h>
 
 namespace durandalc {
+
+const std::string BACKUP_FILE_PATH = "/Users/durandal/durandal/durandalc";
+const std::string DATABASE_PATH = "/Users/durandal/Alysia/durandalc.db";
 
 //#define BOOST_LOG_TRIVIAL(info) INFO;
 //#define BOOST_LOG_TRIVIAL(trace) TRACE;
@@ -33,6 +40,8 @@ namespace durandalc {
 //#define BOOST_LOG_TRIVIAL(warning) WARNING;
 
 void get_files_in_directory(const std::string& dir_path, std::vector<std::string>& result);
+bool is_file_open(const std::string& filename);
+void get_file_md5(const std::string& filename, std::string& result);
 
 namespace details {
 
@@ -66,7 +75,7 @@ private:
     std::mutex mu_;
 };
 
-}
+};
 
 }
 
