@@ -19,6 +19,7 @@
 #include <map>
 #include <algorithm>
 #include <functional>
+#include <filesystem>
 
 #include <sqlite3.h>
 
@@ -30,6 +31,8 @@ namespace durandalc {
 //#define BOOST_LOG_TRIVIAL(fatal) FATAL;
 //#define BOOST_LOG_TRIVIAL(debug) DEBUG;
 //#define BOOST_LOG_TRIVIAL(warning) WARNING;
+
+void get_files_in_directory(const std::string& dir_path, std::vector<std::string>& result);
 
 namespace details {
 
